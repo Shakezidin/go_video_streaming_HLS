@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Player</title>
+</head>
+<body>
+    <h1>Media Player</h1>
+    <video controls autoplay id="videoPlayer" width="640" height="360">
+        <source src="{{ .VideoURL }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <audio controls autoplay id="audioPlayer">
+        <source src="{{ .AudioURL }}" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    
+
+    <button onclick="playVideo('{{.VideoURL}}')">Play Video</button>
+    <button onclick="playAudio('{{.AudioURL}}')">Play Audio</button>
+
+    <script>
+        function playVideo(videoURL) {
+            console.log('Playing video:', videoURL);
+            document.getElementById('videoPlayer').src = videoURL;
+        }
+
+        function playAudio(audioURL) {
+            console.log('Playing audio:', audioURL);
+            document.getElementById('audioPlayer').src = audioURL;
+        }
+    </script>
+</body>
+</html>
